@@ -21,11 +21,10 @@ describe('Testes do site Sauce Demo', ()=>{
         cy.get('#login-button')
         .click()
 
-        cy.location('pathname').should('eq', '/inventory.html')
-        
-
+        cy.location('pathname').should('eq', '/inventory.html')        
 
     });
+
 
     it('deve notificar o usuário ao informar senha inválida', () => {
 
@@ -46,6 +45,8 @@ describe('Testes do site Sauce Demo', ()=>{
 
     });
 
+
+    
     it('deve notificar o usuário ao informar login inválido', () => {
 
         cy.get('#user-name')
@@ -65,5 +66,34 @@ describe('Testes do site Sauce Demo', ()=>{
 
     });
 
+    it('deve notificar o usuário ao informar login e senha inválido', () => {
+        cy.get('#user-name')
+        .type('usuario_invalido')
+
+        cy.get('#password')
+        .type('senha_invalida')
+
+        cy.get('#login-button')
+        .click()
+
+        cy.get('[data-test="error"]')
+        .should('be.visible')
+        .and('contain.text', 'Username and password do not match')
+
+        cy.location('pathname').should('eq', '/')
+    });
+
+    it('não deve logar sem as credenciais', () => {
+        
+        cy.get('#login-button')
+        .click()
+
+        cy.get('[data-test="error"]')
+        .should('be.visible')
+        .and('contain.text', 'Username is required')
+
+        cy.location('pathname').should('eq', '/')
+    });
+    
 
 })
