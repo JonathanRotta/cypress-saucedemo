@@ -1,8 +1,8 @@
-describe('Testes do site Sauce Demo', ()=>{
+describe('Realizando acesso na tela de login', ()=>{
 
     beforeEach(()=>{
 
-        cy.visit('https://www.saucedemo.com/')
+        cy.visit('/')
 
     })
 
