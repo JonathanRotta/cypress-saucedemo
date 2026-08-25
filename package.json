@@ -1,13 +1,19 @@
 {
-  "name": "cyte",
+  "name": "cypress-saucedemo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Testes end-to-end com Cypress para o site Sauce Demo.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cypress",
+    "e2e",
+    "test-automation",
+    "saucedemo"
+  ],
+  "author": "Jonathan Rotta",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {

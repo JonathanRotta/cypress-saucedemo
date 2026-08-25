@@ -1,10 +1,10 @@
 # Casos de teste — Inventário
 
-Este documento registra os casos de teste atualmente automatizados para a tela de inventário do Sauce Demo.
+Este documento registra somente os cenários automatizados em `cypress/e2e/inventory.cy.js`.
 
 ## Pré-condição
 
-O usuário deve realizar login com credenciais válidas e acessar a página `/inventory.html`.
+O usuário deve estar autenticado e na página `/inventory.html`.
 
 ## Casos automatizados
 
@@ -12,23 +12,29 @@ O usuário deve realizar login com credenciais válidas e acessar a página `/in
 
 **Ação:** acessar a tela de inventário.
 
-**Resultado esperado:** a lista de produtos deve estar visível.
+**Resultado esperado:** a lista deve conter exatamente seis produtos.
 
-### CT-INV-002 — Adicionar um produto ao carrinho
-
-**Ação:** adicionar o produto `Sauce Labs Backpack` ao carrinho.
-
-**Resultado esperado:** o ícone do carrinho deve exibir a quantidade `1`.
-
-### CT-INV-003 — Remover um produto dentro do carrinho
+### CT-INV-002 — Adicionar os dois primeiros produtos ao carrinho
 
 **Ações:**
 
-1. Adicionar o produto `Sauce Labs Backpack` ao carrinho.
-2. Acessar a página do carrinho.
-3. Remover o produto.
+1. Adicionar o primeiro produto da lista ao carrinho.
+2. Verificar o indicador de quantidade do carrinho.
+3. Adicionar o segundo produto da lista ao carrinho.
+4. Verificar novamente o indicador de quantidade do carrinho.
 
 **Resultados esperados:**
 
-- O produto deve desaparecer do carrinho.
-- O indicador de quantidade do carrinho não deve mais ser exibido.
+- Após a primeira adição, o indicador do carrinho deve exibir `1`.
+- O botão do primeiro produto deve estar visível com o texto `Remove`.
+- Após a segunda adição, o indicador do carrinho deve exibir `2`.
+- O botão do segundo produto deve estar visível com o texto `Remove`.
+
+### CT-INV-003 — Adicionar o Sauce Labs Backpack ao carrinho
+
+**Ação:** adicionar o produto `Sauce Labs Backpack` ao carrinho.
+
+**Resultados esperados:**
+
+- O indicador de quantidade do carrinho deve exibir `1`.
+- O botão de remoção do produto deve estar visível com o texto `Remove`.

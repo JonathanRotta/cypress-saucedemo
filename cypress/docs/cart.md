@@ -1,12 +1,15 @@
 # Casos de teste — Carrinho
 
-Este documento registra os casos de teste atualmente automatizados para a tela do carrinho do Sauce Demo.
+Este documento registra somente os cenários automatizados em `cypress/e2e/cart.cy.js`.
 
 ## Pré-condições
 
-- O usuário deve realizar login com credenciais válidas.
-- O produto `Sauce Labs Backpack` deve ser adicionado ao carrinho.
-- O usuário deve acessar a página `/cart.html`.
+Antes de cada cenário automatizado:
+
+1. O usuário é autenticado com credenciais válidas.
+2. O produto `Sauce Labs Backpack` é adicionado ao carrinho.
+3. O usuário acessa a página `/cart.html`.
+4. O endereço da página é validado.
 
 ## Casos automatizados
 
@@ -16,14 +19,19 @@ Este documento registra os casos de teste atualmente automatizados para a tela d
 
 **Resultados esperados:**
 
-- O carrinho deve apresentar somente um item.
-- O item apresentado deve ser o produto `Sauce Labs Backpack`.
+- O carrinho deve conter exatamente um item.
+- O item deve ser o produto `Sauce Labs Backpack`.
 
-### CT-CART-002 — Remover um produto do carrinho
+### CT-CART-002 — Remover o produto do carrinho
 
-**Ação:** clicar no botão de remoção do produto `Sauce Labs Backpack`.
+**Ações:**
+
+1. Confirmar que o carrinho contém exatamente um item.
+2. Confirmar que o item é o produto `Sauce Labs Backpack`.
+3. Verificar se o botão de remoção está visível.
+4. Clicar no botão de remoção.
 
 **Resultados esperados:**
 
-- O produto deve desaparecer da lista do carrinho.
-- O indicador de quantidade do carrinho não deve mais ser exibido.
+- Nenhum produto deve permanecer na lista do carrinho.
+- O indicador de quantidade do carrinho não deve mais existir.
